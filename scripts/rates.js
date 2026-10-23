@@ -1,49 +1,88 @@
 document.addEventListener('DOMContentLoaded', async (event) => {
-  // заполнение тарифов
   const ratesList = document.querySelector('.rates-grid');
+  if (!ratesList) return;
 
-  const rates = await getRates();
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (char) => {
+      const entities = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      };
+      return entities[char];
+    });
+  }
 
-  showRates();
+  const getFormatLabel = (rateName) => {
+    if (rateName.includes('Удвох')) return 'Навчання в парі';
+    if (rateName.includes('Лише ти') || rateName.includes('Дитячий')) {
+      return 'Індивідуальні заняття 1 на 1';
+    }
+    return 'Міні-група до 6 осіб';
+  };
 
-  function showRates() {
-    const graphicTop = `
-          <div class="blob blob-top"">
-            <img style="width: 100%; height: 100%;" src="assets/pictures/rates-graphic_1.svg" alt="Blob" />
-          </div>
-    `;
-    const graphicBottom = `
-          <div class="blob blob-bottom">
-            <img style="width: 100%; height: 100%;" src="assets/pictures/rates-graphic_2.svg" alt="Blob" />
-          </div>
-    `;
+  try {
+    const rates = await getRates();
+    showRates(rates);
+  } catch (error) {
+    console.error('Не вдалося завантажити тарифи:', error);
+    ratesList.innerHTML =
+      '<p class="rates-loading">Не вдалося завантажити тарифи. Спробуйте оновити сторінку.</p>';
+  }
+
+  function showRates(rates) {
     ratesList.innerHTML = '';
+    const featuredPhotos = [
+      {
+        src: 'assets/pictures/speaking-club.webp',
+        alt: 'Студенти спілкуються за кавою',
+      },
+      {
+        src: 'assets/pictures/challenges.webp',
+        alt: 'Заняття французькою в мінігрупі',
+      },
+    ];
 
-    rates.forEach((rate, index) => {
-      if (rate.details.length > 0) {
-        const rateElement = document.createElement('div');
-        rateElement.classList.add('rate-card');
+    const visibleRates = rates.filter(
+      (rate) => !String(rate.name ?? '').toLocaleLowerCase('uk').includes('перший урок')
+    );
 
-        // убираем скобки из duration, если они есть
-        const duration = rate.duration.replace(/^\((.*)\)$/, '$1');
+    visibleRates.forEach((rate, index) => {
+      const rateElement = document.createElement('div');
+      const isFeatured = index < 2;
+      rateElement.classList.add('rate-card');
+      if (isFeatured) rateElement.classList.add('rate-card-featured');
 
-        rateElement.innerHTML = `
-                ${index % 2 === 0 ? graphicBottom : graphicTop}
-                <h4>${rate.name}</h4>
+      const rateName = escapeHTML(rate.name);
+      const duration = escapeHTML(String(rate.duration ?? '').replace(/^\((.*)\)$/, '$1'));
+      const price = escapeHTML(rate.price);
+      const photo = featuredPhotos[index];
+      const photoMarkup = photo
+        ? `<div class="rate-card-photo"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" /></div>`
+        : '';
+
+      rateElement.innerHTML = `
+                ${photoMarkup}
+                <div class="rate-card-content">
+                <div class="rate-format">${getFormatLabel(String(rate.name ?? ''))}</div>
+                <h3>${rateName}</h3>
                 <div class="freq">${duration}</div>
-                <ul>
-                  <li><span class="dot"></span>${rate.details[0]}</li>
-                  <li><span class="dot"></span>${rate.details[1]}</li>
-                  <li><span class="dot"></span>${rate.details[2]}</li>
-                  <li><span class="dot"></span>${rate.details[3]}</li>
-                </ul>
-                <div class="price">${rate.price} грн</div>
-                <a href="#booking" class="btn btn-teal">Записатись</a>
+                <div class="rate-card-footer">
+                  <div class="price">${price} грн</div>
+                  <a href="#booking" class="btn btn-teal">Записатись</a>
+                </div>
+                </div>
             `;
 
-        ratesList.appendChild(rateElement);
-      }
+      ratesList.appendChild(rateElement);
     });
+
+    if (!ratesList.children.length) {
+      ratesList.innerHTML = '<p class="rates-loading">Наразі тарифів немає.</p>';
+      return;
+    }
 
     // Получаем модальное окно
     const modal = document.getElementById('myModal');

@@ -1,19 +1,20 @@
 let cachedLesson = null;
 let cachedRates = null;
-let cachedTeachers = null;
+const cachedTeachers = new Map();
 let cachedCountGoogleReviews = null;
 
 async function getDataFromGoogleSheet(page, range, sheet_id) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheet_id}/values/${page}!${range}?key=${GOOGLE_DOCS_API}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
     return data;
   } catch (error) {
+    console.error(`Unable to load Google Sheet range ${page}!${range}:`, error);
     return null;
   }
 }
@@ -44,14 +45,20 @@ function getRatesArray(data) {
 }
 
 function getTeachersArray(data) {
-  return data.map((teacher) => {
-    return {
-      name: teacher[0],
-      description: teacher[1],
-      photo: teacher[2],
-      link: teacher[3],
-    };
-  });
+  return data
+    .filter((teacher) => teacher[0] || teacher[1] || teacher[2] || teacher[3])
+    .map((teacher) => {
+      // Support the current A:name, B:description, C:photo, D:YouTube layout
+      // and the simpler A:name, B:description, C:YouTube layout.
+      const thirdCellIsVideo = /^https?:\/\//i.test(teacher[2] || '') &&
+        /youtu(?:\.be|be\.com)/i.test(teacher[2]);
+      return {
+        name: teacher[0] || '',
+        description: teacher[1] || '',
+        photo: thirdCellIsVideo ? teacher[3] || '' : teacher[2] || '',
+        link: thirdCellIsVideo ? teacher[2] : teacher[3] || '',
+      };
+    });
 }
 
 async function getLessons(pageTitle) {
@@ -106,12 +113,13 @@ async function getRates() {
         'A2:E333',
         SHEET_ID
       );
-      const data = getRatesArray(dataRates.values);
+      if (!dataRates) return [];
+      const data = getRatesArray(dataRates.values || []);
 
       cachedRates = data; // Кэшируем данные
     } catch (error) {
       console.error('Error fetching data:', error);
-      throw error;
+      return [];
     }
   }
   console.log('cachedRates:', cachedRates);
@@ -140,25 +148,24 @@ async function getTeachers(pageTitle) {
       pageSheet = 'Czech_teachers';
       break;
   }
-  if (!SHEET_ID) return 100;
+  if (!SHEET_ID || !pageSheet) return [];
 
-  if (cachedTeachers === null) {
+  if (!cachedTeachers.has(pageSheet)) {
     try {
-      // Ваш код для получения данных, например, запрос к серверу
       const dataTeachers = await getDataFromGoogleSheet(
         pageSheet,
         'A2:D333',
         SHEET_ID
       );
-      const data = getTeachersArray(dataTeachers ? dataTeachers.values : []);
-
-      cachedTeachers = data; // Кэшируем данные
+      if (!dataTeachers) return [];
+      const data = getTeachersArray(dataTeachers.values || []);
+      cachedTeachers.set(pageSheet, data);
     } catch (error) {
       console.error('Error fetching data:', error);
       return [];
     }
   }
-  return cachedTeachers;
+  return cachedTeachers.get(pageSheet);
 }
 
 async function getCountGoogleReviews() {

@@ -2,9 +2,9 @@
 
 const SCHEDULE_TIME_FILTER_LABELS = {
   all: 'Будь-який час',
-  morning: 'Ранковий час',
-  day: 'Денний час',
-  evening: 'Вечірній час',
+  morning: 'Вранці',
+  day: 'Вдень',
+  evening: 'Увечері',
 };
 const SCHEDULE_TIME_FILTER_ORDER = ['morning', 'day', 'evening'];
 const SCHEDULE_LEVEL_ORDER = ['з нуля', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -67,7 +67,35 @@ function scheduleCategorizeTime(scheduleStr) {
 }
 
 function scheduleNormalizeLevel(levelStr) {
-  return (levelStr || '').trim();
+  const raw = (levelStr || '').trim();
+  // Transliterate only level codes such as А1/В2, never normal text like "з нуля".
+  if (!/^[a-zа-яіїєґ]{1,2}\s*\d+$/iu.test(raw)) return raw;
+
+  const latinLookalikes = {
+    А: 'A', В: 'B', С: 'C', Е: 'E', Н: 'H', К: 'K', М: 'M', О: 'O',
+    Р: 'P', Т: 'T', Х: 'X', І: 'I',
+    а: 'a', в: 'b', с: 'c', е: 'e', н: 'h', к: 'k', м: 'm', о: 'o',
+    р: 'p', т: 't', х: 'x', і: 'i',
+  };
+  const normalized = raw
+    .replace(/[АВСЕНКМОРТХІавсенкмортхі]/g, (letter) => latinLookalikes[letter]);
+  return /^[a-z]\d+$/i.test(normalized) ? normalized.toUpperCase() : normalized;
+}
+
+function scheduleTranslateDays(schedule) {
+  const days = {
+    ПН: 'ПН',
+    ВТ: 'ВТ',
+    СР: 'СР',
+    ЧТ: 'ЧТ',
+    ПТ: 'ПТ',
+    СБ: 'СБ',
+    НД: 'НД',
+  };
+  return (schedule || '').replace(
+    /(^|[^А-ЯЁІЇЄҐA-Z])(ПН|ВТ|СР|ЧТ|ПТ|СБ|НД)(?=$|[^А-ЯЁІЇЄҐA-Z])/gi,
+    (match, prefix, day) => `${prefix}${days[day.toUpperCase()] || day}`
+  );
 }
 
 function scheduleFormatDate(dateStr) {
@@ -78,6 +106,17 @@ function scheduleFormatDate(dateStr) {
   const day = match[1];
   const month = SCHEDULE_MONTHS[match[2].toLowerCase()];
   return month ? `${day}.${month}` : raw;
+}
+
+function scheduleFormatCurrency(value) {
+  const formatted = String(value ?? '')
+    .toString()
+    .replace(/GNH/gi, 'грн')
+    .replace(/UAH/gi, 'грн')
+    .replace(/грн\.?|₴/gi, 'грн')
+    .trim();
+  if (!formatted) return '';
+  return /грн/i.test(formatted) ? formatted : `${formatted} грн`;
 }
 
 function scheduleMatchesFilters(row, excludeKey) {
@@ -155,7 +194,7 @@ function scheduleRenderLevelFilter() {
     `<option value="all"${scheduleFilterState.level === 'all' ? ' selected' : ''}>Всі рівні</option>`,
     ...displayLevels.map((lvl) => {
       const lvlKey = lvl.toLowerCase();
-      const label = lvlKey === 'з нуля' ? 'З нуля' : lvl;
+      const label = lvl;
       const selected = scheduleFilterState.level === lvlKey ? ' selected' : '';
       return `<option value="${lvlKey}"${selected}>${label}</option>`;
     }),
@@ -174,29 +213,24 @@ function scheduleRenderGroupCards() {
   );
 
   if (filtered.length === 0) {
-    domGrid.innerHTML = `<p class="schedule-empty">Групи за цими фільтрами не знайдені.</p>`;
+    domGrid.innerHTML = `<p class="schedule-empty">За цими фільтрами груп не знайдено.</p>`;
     return;
   }
 
   domGrid.innerHTML = filtered
     .map((row) => {
-      const title = row.groupNumber ? `Група ${row.groupNumber}` : `Група`;
-      const isFromScratch = row._levelKey === 'з нуля';
+      const title = row.groupNumber ? `Група ${row.groupNumber}` : 'Група';
 
       // Деструктуризация классов бейджа и карты из единого словаря
       const { badge: badgeClass = 'status-a', card: cardClass = 'level-a1' } =
         SCHEDULE_LEVEL_MAP[row._normLevel] || {};
 
-      const badgeLabel = isFromScratch
-        ? row._formattedStart
-          ? `З нуля 📅 ${row._formattedStart}`
-          : 'З нуля'
-        : row._normLevel;
+      const badgeLabel = row._normLevel;
 
       const rate = scheduleRatesMap.get(row._rateKey);
       const priceLine = rate
-        ? `${rate.price} грн. / ${rate.quantity} уроків`
-        : row.rate || '—';
+        ? `${scheduleFormatCurrency(rate.price)} / ${rate.quantity} уроків`
+        : scheduleFormatCurrency(row.rate) || '—';
 
       const teacherLink = scheduleTeachersMap.get(row._teacherKey);
       const teacherVideoIcon = teacherLink
@@ -210,25 +244,26 @@ function scheduleRenderGroupCards() {
         : '';
 
       const startLine =
-        row._formattedStart && !isFromScratch
-          ? `<li><span class="dot"></span>Старт: <b>${row._formattedStart}</b></li>`
+        row._formattedStart
+          ? `<li><span class="dot"></span>Початок: <b>${row._formattedStart}</b></li>`
           : '';
 
       return `
         <div class="group-card ${cardClass}">
+          <div class="group-card-inner">
           ${CARD_BLOB_SVG}
           <div class="group-head">
             <h3>${title}</h3>
             <span class="status-pill ${badgeClass}">${badgeLabel}</span>
           </div>
           <ul class="group-rows">
-            <li>${CARD_DOT_SVG}Розклад: &nbsp;&nbsp;<b>${row.schedule}</b></li>
+            <li>${CARD_DOT_SVG}Розклад: &nbsp;&nbsp;<b>${scheduleTranslateDays(row.schedule)}</b></li>
             <li>${CARD_DOT_SVG}Викладач: <b>${row.teacher}</b> ${teacherVideoIcon}</li>
             <li>${CARD_DOT_SVG}Вартість: &nbsp;<b>${priceLine}</b></li>
             ${startLine}
           </ul>
           <a href="#booking" class="group-link">
-            Записатись
+            Записатися
             <svg class="arrow-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M14.43 5.92982L20.5 11.9998L14.43 18.0698"
                     stroke="currentColor"
@@ -244,6 +279,7 @@ function scheduleRenderGroupCards() {
                     stroke-linejoin="round"/>
             </svg>
           </a>
+          </div>
         </div>
       `;
     })
@@ -317,9 +353,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const [lessons, rates, teachers] = await Promise.all([
-    getLessons('Чеська'),
+    getLessons('Французька'),
     getRates(),
-    getTeachers('Чеська'),
+    getTeachers('Французька'),
   ]);
 
   // Индексация rates и teachers в Map для мгновенного поиска O(1)

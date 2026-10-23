@@ -98,7 +98,7 @@
         telegram: form.telegram.value.trim(),
         experience: form.experience.value,
         format: form.format.value,
-        language: 'Чеська',
+        language: 'French',
       };
 
       console.log('Booking form submitted:', data);

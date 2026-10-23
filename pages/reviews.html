@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="uk">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Відгуки — Човен, онлайн школа чеської мови</title>
+    <title>Avis — Choven, école de français en ligne</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/reviews.css" />
     <link rel="stylesheet" href="../styles/booking-modal.css" />
@@ -24,15 +24,15 @@
           <img src="../assets/icons/icon-logo.svg" alt="Logo" />
         </a>
         <nav class="main-nav">
-          <a href="../index.html#" class="active">Головна</a>
-          <a href="../index.html#schedule">Розклад</a>
-          <a href="../index.html#rates">Вартість</a>
-          <a href="reviews.html">Відгуки</a>
+          <a href="../index.html#" class="active">Accueil</a>
+          <a href="../index.html#schedule">Planning</a>
+          <a href="../index.html#rates">Tarifs</a>
+          <a href="reviews.html">Avis</a>
           <a href="faq.html">FAQ</a>
         </nav>
         <div class="header-actions">
           <div class="icon-row">
-            <a class="icon-btn" href="tel:+420704485331" aria-label="Телефон">
+            <a class="icon-btn" href="tel:+420704485331" aria-label="Téléphone">
               <img src="../assets/icons/icon_phone_normal.svg" alt="Phone" />
             </a>
             <a
@@ -48,7 +48,7 @@
             </a>
             <a
               class="icon-btn"
-              href="https://telegram.me/czoven"
+              href="https://telegram.me/czoven_school_bot"
               aria-label="Telegram"
               target="_blank"
             >
@@ -67,16 +67,16 @@
             </a>
           </div>
           <a href="payment.html" class="btn pay-pill">
-            Внести оплату
+            Payer
             <img src="../assets/icons/icon_visa.svg" alt="VISA" />
           </a>
           <a href="../index.html#booking" class="btn btn-orange"
-            >Записатись на урок</a
+            >Réserver un cours</a
           >
         </div>
 
         <!-- бургер теперь toggle'ит .open на .mobile-menu -->
-        <button class="burger" aria-label="Меню" id="burgerBtn">
+        <button class="burger" aria-label="Menu" id="burgerBtn">
           <img src="../assets/icons/icon-menu.svg" alt="Menu" />
         </button>
       </div>
@@ -96,7 +96,7 @@
         <button
           class="mobile-menu-close"
           id="mobileMenuClose"
-          aria-label="Закрити"
+          aria-label="Fermer"
         >
           <img src="../assets/icons/icon-close.svg" alt="Close" />
         </button>
@@ -104,19 +104,19 @@
 
       <nav class="mobile-menu-nav">
         <a href="../index.html#" class="mobile-menu-link">
-          <h3>Головна</h3>
+          <h3>Accueil</h3>
           <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
         </a>
         <a href="../index.html#schedule" class="mobile-menu-link">
-          <h3>Розклад</h3>
+          <h3>Planning</h3>
           <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
         </a>
         <a href="../index.html#rates" class="mobile-menu-link">
-          <h3>Вартість</h3>
+          <h3>Tarifs</h3>
           <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
         </a>
         <a href="reviews.html" class="mobile-menu-link">
-          <h3>Відгуки</h3>
+          <h3>Avis</h3>
           <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
         </a>
         <a href="faq.html" class="mobile-menu-link">
@@ -127,7 +127,7 @@
 
       <div class="mobile-menu-bottom">
         <div class="mobile-menu-socials">
-          <a class="icon-btn" href="tel:+420704485331" aria-label="Телефон">
+          <a class="icon-btn" href="tel:+420704485331" aria-label="Téléphone">
             <img src="../assets/icons/icon_phone_normal.svg" alt="Phone" />
           </a>
           <a
@@ -143,7 +143,7 @@
           </a>
           <a
             class="icon-btn"
-            href="https://telegram.me/czoven"
+            href="https://telegram.me/czoven_school_bot"
             aria-label="Telegram"
             target="_blank"
           >
@@ -163,29 +163,29 @@
         </div>
 
         <a href="../index.html#booking" class="btn btn-orange mobile-menu-btn"
-          >Записатись на урок</a
+          >Réserver un cours</a
         >
         <a
           href="payment.html"
           class="btn pay-pill mobile-menu-btn mobile-menu-pay"
         >
-          Внести оплату
+          Payer
           <img src="../assets/icons/icon_visa.svg" alt="VISA" />
         </a>
       </div>
     </div>
 
     <!-- ================= BREADCRUMBS ================= -->
-    <nav class="breadcrumbs" aria-label="breadcrumb">
-      <a href="../index.html">Головна</a>
+    <nav class="breadcrumbs" aria-label="Fil d’Ariane">
+      <a href="../index.html">Accueil</a>
       <span class="sep">/</span>
-      <span class="current">Відгуки</span>
+      <span class="current">Avis</span>
     </nav>
 
     <!-- ================= REVIEWS ================= -->
     <section class="reviews-page">
       <!-- <h2 class="reviews-title">
-        <span class="accent">Відгуки</span> наших студентів
+        <span class="accent">Avis</span> de nos étudiants
       </h2>
 
       <div class="reviews-grid">
@@ -197,9 +197,7 @@
             />
           </div>
           <p class="review-text">
-            Вважаю вашу школу чудовою та ціни приємні. Мені подобається наша
-            вчителька та методи викладання, наша невеличка група теж дуже
-            класна. Я буду вчити французьку з вами 100%, бо ви 10/10.
+            Je trouve votre école formidable et les prix très intéressants. J’aime notre professeure, sa méthode et notre petit groupe très sympa. Je continuerai à apprendre le français avec vous, c’est sûr : vous êtes au top !
           </p>
           <div class="review-author">
             <span
@@ -209,8 +207,8 @@
               "
             ></span>
             <div>
-              <h4 class="review-name">Марія</h4>
-              <div class="review-level">Навчається на рівні B2</div>
+              <h4 class="review-name">Maria</h4>
+              <div class="review-level">Étudie au niveau B2</div>
             </div>
           </div>
         </article>
@@ -223,9 +221,7 @@
             />
           </div>
           <p class="review-text">
-            Вважаю вашу школу чудовою та ціни приємні. Мені подобається наша
-            вчителька та методи викладання, наша невеличка група теж дуже
-            класна. Я буду вчити французьку з вами 100%, бо ви 10/10.
+            Je trouve votre école formidable et les prix très intéressants. J’aime notre professeure, sa méthode et notre petit groupe très sympa. Je continuerai à apprendre le français avec vous, c’est sûr : vous êtes au top !
           </p>
           <div class="review-author">
             <span
@@ -235,8 +231,8 @@
               "
             ></span>
             <div>
-              <h4 class="review-name">Марія</h4>
-              <div class="review-level">Навчається на рівні B2</div>
+              <h4 class="review-name">Maria</h4>
+              <div class="review-level">Étudie au niveau B2</div>
             </div>
           </div>
         </article>
@@ -249,9 +245,7 @@
             />
           </div>
           <p class="review-text">
-            Вважаю вашу школу чудовою та ціни приємні. Мені подобається наша
-            вчителька та методи викладання, наша невеличка група теж дуже
-            класна. Я буду вчити французьку з вами 100%, бо ви 10/10.
+            Je trouve votre école formidable et les prix très intéressants. J’aime notre professeure, sa méthode et notre petit groupe très sympa. Je continuerai à apprendre le français avec vous, c’est sûr : vous êtes au top !
           </p>
           <div class="review-author">
             <span
@@ -261,8 +255,8 @@
               "
             ></span>
             <div>
-              <h4 class="review-name">Марія</h4>
-              <div class="review-level">Навчається на рівні B2</div>
+              <h4 class="review-name">Maria</h4>
+              <div class="review-level">Étudie au niveau B2</div>
             </div>
           </div>
         </article>
@@ -275,9 +269,7 @@
             />
           </div>
           <p class="review-text">
-            Вважаю вашу школу чудовою та ціни приємні. Мені подобається наша
-            вчителька та методи викладання, наша невеличка група теж дуже
-            класна. Я буду вчити французьку з вами 100%, бо ви 10/10.
+            Je trouve votre école formidable et les prix très intéressants. J’aime notre professeure, sa méthode et notre petit groupe très sympa. Je continuerai à apprendre le français avec vous, c’est sûr : vous êtes au top !
           </p>
           <div class="review-author">
             <span
@@ -287,8 +279,8 @@
               "
             ></span>
             <div>
-              <h4 class="review-name">Марія</h4>
-              <div class="review-level">Навчається на рівні B2</div>
+              <h4 class="review-name">Maria</h4>
+              <div class="review-level">Étudie au niveau B2</div>
             </div>
           </div>
         </article>
@@ -301,9 +293,7 @@
             />
           </div>
           <p class="review-text">
-            Вважаю вашу школу чудовою та ціни приємні. Мені подобається наша
-            вчителька та методи викладання, наша невеличка група теж дуже
-            класна. Я буду вчити французьку з вами 100%, бо ви 10/10.
+            Je trouve votre école formidable et les prix très intéressants. J’aime notre professeure, sa méthode et notre petit groupe très sympa. Je continuerai à apprendre le français avec vous, c’est sûr : vous êtes au top !
           </p>
           <div class="review-author">
             <span
@@ -313,8 +303,8 @@
               "
             ></span>
             <div>
-              <h4 class="review-name">Марія</h4>
-              <div class="review-level">Навчається на рівні B2</div>
+              <h4 class="review-name">Maria</h4>
+              <div class="review-level">Étudie au niveau B2</div>
             </div>
           </div>
         </article>
@@ -327,9 +317,7 @@
             />
           </div>
           <p class="review-text">
-            Вважаю вашу школу чудовою та ціни приємні. Мені подобається наша
-            вчителька та методи викладання, наша невеличка група теж дуже
-            класна. Я буду вчити французьку з вами 100%, бо ви 10/10.
+            Je trouve votre école formidable et les prix très intéressants. J’aime notre professeure, sa méthode et notre petit groupe très sympa. Je continuerai à apprendre le français avec vous, c’est sûr : vous êtes au top !
           </p>
           <div class="review-author">
             <span
@@ -339,8 +327,8 @@
               "
             ></span>
             <div>
-              <h4 class="review-name">Марія</h4>
-              <div class="review-level">Навчається на рівні B2</div>
+              <h4 class="review-name">Maria</h4>
+              <div class="review-level">Étudie au niveau B2</div>
             </div>
           </div>
         </article>
@@ -351,30 +339,30 @@
         href="https://www.google.com/search?sca_esv=eff03c613f9494ac&hl=uk&authuser=0&tbm=lcl&sxsrf=ACQVn0_ROyG1brA8oHWroGa5ouUdKxMduA:1707416807289&q=Shuttle+school+%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD+%D1%88%D0%BA%D0%BE%D0%BB%D0%B0+%D1%96%D0%BD%D0%BE%D0%B7%D0%B5%D0%BC%D0%BD%D0%B8%D1%85+%D0%BC%D0%BE%D0%B2+%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA%D0%B8&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDA1NTazMDE3tzQzszAzNDAyMdrAyPiK0T84o7SkJCdVoTg5Iz8_R-HCvgt7L-y-sOHCzgt7FS52XNgFFAByFS5OA4rvu7D9wtYLe4CsHRdbFYCMfRc2KVyYBJTbcmHzxWag4h2LWKltIgBb0UGavwAAAA&rldimm=10553684779668610242&sa=X&ved=2ahUKEwi0m5-ir5yEAxX-UqQEHZDwCDMQ9fQKegQIPRAF#lkt=LocalPoiReviews"
         target="_blank"
         rel="noopener"
-        aria-label="274 відгуки на Google"
+        aria-label="274 avis sur Google"
       >
         <span class="stars">
           <div>
-            <img src="../assets/icons/icon-star.svg" alt="Star icon" />
+            <img src="../assets/icons/icon-star.svg" alt="Étoile" />
           </div>
           <div>
-            <img src="../assets/icons/icon-star.svg" alt="Star icon" />
+            <img src="../assets/icons/icon-star.svg" alt="Étoile" />
           </div>
           <div>
-            <img src="../assets/icons/icon-star.svg" alt="Star icon" />
+            <img src="../assets/icons/icon-star.svg" alt="Étoile" />
           </div>
           <div>
-            <img src="../assets/icons/icon-star.svg" alt="Star icon" />
+            <img src="../assets/icons/icon-star.svg" alt="Étoile" />
           </div>
           <div>
-            <img src="../assets/icons/icon-star.svg" alt="Star icon" />
+            <img src="../assets/icons/icon-star.svg" alt="Étoile" />
           </div>
         </span>
-        <span class="count">274 відгуків</span>
+        <span class="count">274 avis</span>
         <img
           class="google-logo"
           src="../assets/icons/icon-google-logo.svg"
-          alt="Google Logo"
+          alt="Logo Google"
         />
       </a>
     </section>
@@ -387,7 +375,7 @@
             <a href="../index.html#" class="brand">
               <img src="../assets/icons/icon-logo.svg" alt="Logo" />
             </a>
-            <p class="footer-tagline">Човен – онлайн школа чеської мови</p>
+            <p class="footer-tagline">Choven – école de français en ligne</p>
             <div class="pay-icons">
               <img
                 src="../assets/icons/icon_ApplePay_black.svg"
@@ -410,21 +398,21 @@
             <a
               href="../index.html#booking"
               class="btn btn-orange footer-btn-mobile"
-              >Записатись на урок</a
+              >Réserver un cours</a
             >
           </div>
           <div class="footer-col">
-            <h5>Навігація</h5>
+            <h5>Navigation</h5>
             <div class="footer-links">
-              <a href="../index.html#">Головна</a>
-              <a href="reviews.html">Відгуки</a>
-              <a href="../index.html#schedule">Розклад</a>
+              <a href="../index.html#">Accueil</a>
+              <a href="reviews.html">Avis</a>
+              <a href="../index.html#schedule">Planning</a>
               <a href="faq.html">FAQ</a>
-              <a href="../index.html#rates">Вартість</a>
+              <a href="../index.html#rates">Tarifs</a>
             </div>
           </div>
           <div class="footer-col footer-contacts">
-            <h5>Контакти</h5>
+            <h5>Contact</h5>
             <a class="phone-row" href="tel:+420704485331">
               <img src="../assets/icons/icon_phone.svg" alt="Phone" />
               +42 (070) 448 53 31
@@ -433,7 +421,7 @@
               <a
                 class="icon-btn footer-phone-icon"
                 href="tel:+420704485331"
-                aria-label="Телефон"
+                aria-label="Téléphone"
               >
                 <img src="../assets/icons/icon_phone_normal.svg" alt="Phone" />
               </a>
@@ -450,7 +438,7 @@
               </a>
               <a
                 class="icon-btn"
-                href="https://telegram.me/czoven"
+                href="https://telegram.me/czoven_school_bot"
                 aria-label="Telegram"
                 target="_blank"
               >
@@ -473,7 +461,7 @@
             <a
               href="../index.html#booking"
               class="btn btn-orange footer-btn-desktop"
-              >Записатись на урок</a
+              >Réserver un cours</a
             >
           </div>
         </div>
@@ -484,21 +472,21 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Публічна оферта
+            Conditions générales de vente
           </a>
           <a
             href="../assets/documents/rules.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Правила проведення занять
+            Règlement des cours
           </a>
           <a
             href="../assets/documents/privacy-policy.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Політика конфеденційності
+            Politique de confidentialité
           </a>
         </div>
       </div>
@@ -515,33 +503,33 @@
         <button
           class="modal-close"
           type="button"
-          aria-label="Закрити"
+          aria-label="Fermer"
           data-close-modal
         >
           &times;
         </button>
 
-        <h3 id="booking-modal-title">Записатися на пробний урок</h3>
+        <h3 id="booking-modal-title">Réserver un cours d’essai</h3>
 
         <form class="booking-form" id="booking-form" novalidate>
           <div class="booking-row">
             <div class="booking-field" data-field="name">
               <label for="booking-name"
-                >Ваше ім'я<span class="req">*</span></label
+                >Votre prénom<span class="req">*</span></label
               >
               <input
                 type="text"
                 id="booking-name"
                 name="name"
-                placeholder="Владислава"
+                placeholder="Vladyslava"
                 required
-                pattern="^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ'\-`’ʼ\s]+$"
-                title="Лише літери (латиниця або кирилиця), пробіл, апостроф або дефіс"
+                pattern="^[A-Za-zÀ-ÖØ-öø-ÿŒœÆæА-Яа-яЁёЇїІіЄєҐґ'\-`’ʼ\s]+$"
+                title="Lettres, espaces, apostrophes et traits d’union uniquement"
               />
             </div>
             <div class="booking-field" data-field="phone">
               <label for="booking-contact"
-                >Номер телефону<span class="req">*</span></label
+                >Numéro de téléphone<span class="req">*</span></label
               >
               <input
                 type="tel"
@@ -550,14 +538,14 @@
                 placeholder="+380632345678"
                 required
                 pattern="^\+?\d{6,15}$"
-                title="Тільки цифри, опціонально перший знак '+' (6-15 цифр)"
+                title="Chiffres uniquement, avec éventuellement un « + » au début (6 à 15 chiffres)"
               />
             </div>
           </div>
           <div class="booking-row">
             <div class="booking-field" data-field="telegram">
               <label for="booking-telegram"
-                >Ваш нік в Telegram<span class="req">*</span></label
+                >Votre identifiant Telegram<span class="req">*</span></label
               >
               <input
                 type="text"
@@ -569,17 +557,17 @@
             </div>
             <div class="booking-field" data-field="experience">
               <label for="booking-experience"
-                >Ви раніше вивчали чеську мову?<span class="req">*</span></label
+                >Avez-vous déjà étudié le français ?<span class="req">*</span></label
               >
               <div class="booking-select-wrap">
                 <select id="booking-experience" name="experience" required>
-                  <option value="none" selected>Ні, потрібно з нуля</option>
-                  <option value="basic">Так, базовий рівень (A1–A2)</option>
+                  <option value="none" selected>Non, je débute</option>
+                  <option value="basic">Oui, niveau élémentaire (A1–A2)</option>
                   <option value="intermediate">
-                    Так, середній рівень (B1–B2)
+                    Oui, niveau intermédiaire (B1–B2)
                   </option>
                   <option value="advanced">
-                    Так, високий рівень (C1 і вище)
+                    Oui, niveau avancé (C1 et plus)
                   </option>
                 </select>
                 <svg
@@ -596,11 +584,11 @@
             </div>
           </div>
           <div class="booking-field" data-field="format">
-            <label for="booking-format">Формат<span class="req">*</span></label>
+            <label for="booking-format">Format<span class="req">*</span></label>
             <div class="booking-select-wrap">
               <select id="booking-format" name="format" required>
-                <option value="Мінігрупа" selected>Мінігрупа</option>
-                <option value="Індивідуальні">Індивідуальні заняття</option>
+                <option value="mini-group">Mini-groupe</option>
+                <option value="individual">Cours individuels</option>
               </select>
               <svg
                 class="booking-select-icon"
@@ -615,18 +603,18 @@
             </div>
           </div>
           <p class="booking-agreement">
-            *Натискаючи на кнопку "Залишити заявку" ви погоджуєтеся з умовами
+            *En cliquant sur « Envoyer ma demande », vous acceptez les
             <a
               href="../assets/documents/offer-students.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Публічної оферти
+              conditions générales de vente
             </a>
           </p>
 
           <button type="submit" class="btn btn-orange booking-submit">
-            Залишити заявку
+            Envoyer ma demande
           </button>
         </form>
       </div>
@@ -634,7 +622,7 @@
 
     <!-- ================= TELEGRAM BUTTON ================= -->
     <a
-      href="https://telegram.me/czoven"
+      href="https://telegram.me/czoven_school_bot"
       target="_blank"
       class="chat-btn floating-btn"
     >

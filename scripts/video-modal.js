@@ -13,7 +13,25 @@ const videoModalCloseBtn = videoModalContainer?.querySelector('.close');
 function showTeacherVideo(link) {
   if (!videoModalContainer || !videoModalIframe || !link) return;
 
-  videoModalIframe.src = link.includes('?') ? `${link}&autoplay=1` : `${link}?autoplay=1`;
+  let videoUrl = link.trim();
+  try {
+    const parsedUrl = new URL(videoUrl);
+    const host = parsedUrl.hostname.replace(/^www\./, '');
+    let videoId = '';
+
+    if (host === 'youtu.be') videoId = parsedUrl.pathname.slice(1);
+    if (host.endsWith('youtube.com')) {
+      if (parsedUrl.pathname === '/watch') videoId = parsedUrl.searchParams.get('v') || '';
+      if (parsedUrl.pathname.startsWith('/embed/')) videoId = parsedUrl.pathname.split('/')[2] || '';
+      if (parsedUrl.pathname.startsWith('/shorts/')) videoId = parsedUrl.pathname.split('/')[2] || '';
+    }
+
+    if (videoId) videoUrl = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}`;
+  } catch (error) {
+    return;
+  }
+
+  videoModalIframe.src = videoUrl.includes('?') ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
   videoModalContainer.style.display = 'block';
   document.body.style.overflow = 'hidden'; // блокируем прокрутку фона
 }

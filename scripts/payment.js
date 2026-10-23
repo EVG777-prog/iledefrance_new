@@ -4,6 +4,26 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
   const rates = await getRates();
 
+  const toFrench = (value) => {
+    const translations = {
+      'Перший урок в групі': 'Premier cours en groupe',
+      'Перший дитячий урок': 'Premier cours pour enfant',
+      'Перший індивідуальний урок': 'Premier cours individuel',
+      'Тариф "Двічі"': 'Formule « Deux fois »',
+      'Тариф "Тричі"': 'Formule « Trois fois »',
+      'Тариф "Підлітки"': 'Formule « Ados »',
+      'Тариф "Лише ти"': 'Formule « Individuel »',
+      'Тариф "Удвох"': 'Formule « À deux »',
+      'Тариф "Дитячий"': 'Formule « Enfants »',
+      '2 рази на тиждень по 90 хв': '2 fois par semaine, 90 min',
+      '3 рази на тиждень по 90 хв': '3 fois par semaine, 90 min',
+      '2 рази на тиждень по 45 хв': '2 fois par semaine, 45 min',
+      '90 хв у Zoom': '90 min sur Zoom',
+      '45 хв у Zoom': '45 min sur Zoom',
+    };
+    return translations[value] || value;
+  };
+
   showRates();
 
   function showRates() {
@@ -20,12 +40,12 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         <div class="blob">
           <img src="../assets/pictures/payment-card-graphic.svg" alt="Payment card graphic" />
         </div>
-        <h3>${rate.name}</h3>
-        <div class="payment-sub">${duration}</div>
+        <h3>${toFrench(rate.name)}</h3>
+        <div class="payment-sub">${toFrench(duration)}</div>
         <div class="payment-count">${rate.quantity} ${pluralizeLessons(rate.quantity)}</div>
         <div class="payment-row">
-            <h3 class="payment-price">${rate.price} грн</h3>
-            <a href="#" class="btn btn-teal">Оплатити</a>
+            <h3 class="payment-price">${rate.price} UAH</h3>
+            <a href="#" class="btn btn-teal">Payer</a>
         </div>
       `;
 
@@ -45,10 +65,10 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     const n = Math.abs(count) % 100;
     const n1 = n % 10;
 
-    if (n > 10 && n < 20) return 'уроків';
-    if (n1 > 1 && n1 < 5) return 'уроки';
-    if (n1 === 1) return 'урок';
-    return 'уроків';
+    if (n > 10 && n < 20) return 'cours';
+    if (n1 > 1 && n1 < 5) return 'cours';
+    if (n1 === 1) return 'cours';
+    return 'cours';
   }
 
   async function createBill(amount) {

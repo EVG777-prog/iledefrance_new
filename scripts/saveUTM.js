@@ -59,16 +59,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Отправка email через EmailJS
-    emailjs.send('service_cxrlixg', 'template_vjb49ud', templateParams).then(
-      function (response) {
-        console.log('Email sent successfully!', response.status, response.text);
-        // Отмечаем, что письмо отправлено
-        markEmailAsSent();
-      },
-      function (error) {
-        console.error('Failed to send email:', error);
-      }
-    );
+    emailjs
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_TELEGRAM, templateParams)
+      .then(
+        function (response) {
+          console.log(
+            'Email sent successfully!',
+            response.status,
+            response.text
+          );
+          // Отмечаем, что письмо отправлено
+          markEmailAsSent();
+        },
+        function (error) {
+          console.error('Failed to send email:', error);
+        }
+      );
   }
 
   // Функция для обработки клика по ссылке Telegram

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function sendEmail(params) {
-    return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_SIGN, {
       ...getCommonParams(),
       ...params,
     });
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: data.name,
       telegram: data.contact,
       experience: data.level,
-      language: 'Чеська',
+      language: 'French',
     });
   }
 

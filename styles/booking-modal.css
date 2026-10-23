@@ -4,7 +4,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(20, 24, 23, 0.35);
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   align-items: center;
@@ -72,7 +72,7 @@
   margin-bottom: 8px;
 }
 .booking-field .req {
-  color: var(--accent);
+  color: var(--main);
 }
 
 .booking-field input,
@@ -138,7 +138,7 @@
   width: 18px;
   height: 18px;
   transform: translateY(-50%);
-  color: #1c1c1c;
+  color: var(--onsurface);
   pointer-events: none;
 }
 
@@ -148,7 +148,7 @@
   line-height: 1.5;
 }
 .booking-agreement a {
-  color: #1c1c1c;
+  color: var(--onsurface);
   text-decoration: underline;
 }
 .booking-agreement a:hover {
