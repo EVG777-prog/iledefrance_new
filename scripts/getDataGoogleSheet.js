@@ -79,9 +79,6 @@ async function getLessons(pageTitle) {
     case 'Англійська':
       pageSheet = 'English_lessons';
       break;
-    case 'Чеська':
-      pageSheet = 'Czech_lessons';
-      break;
   }
   if (!SHEET_ID) return [];
 
@@ -143,9 +140,6 @@ async function getTeachers(pageTitle) {
       break;
     case 'Англійська':
       pageSheet = 'English_teachers';
-      break;
-    case 'Чеська':
-      pageSheet = 'Czech_teachers';
       break;
   }
   if (!SHEET_ID || !pageSheet) return [];
