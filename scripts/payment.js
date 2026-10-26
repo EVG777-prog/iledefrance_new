@@ -1,30 +1,40 @@
-document.addEventListener('DOMContentLoaded', async (event) => {
-  // заполнение тарифов
+document.addEventListener('DOMContentLoaded', async () => {
   const ratesList = document.querySelector('.payment-grid');
+  const discountToggle = document.querySelector('#package-discount');
+  if (!ratesList) return;
 
   const rates = await getRates();
 
-  const toFrench = (value) => {
-    const translations = {
-      'Перший урок в групі': 'Premier cours en groupe',
-      'Перший дитячий урок': 'Premier cours pour enfant',
-      'Перший індивідуальний урок': 'Premier cours individuel',
-      'Тариф "Двічі"': 'Formule « Deux fois »',
-      'Тариф "Тричі"': 'Formule « Trois fois »',
-      'Тариф "Підлітки"': 'Formule « Ados »',
-      'Тариф "Лише ти"': 'Formule « Individuel »',
-      'Тариф "Удвох"': 'Formule « À deux »',
-      'Тариф "Дитячий"': 'Formule « Enfants »',
-      '2 рази на тиждень по 90 хв': '2 fois par semaine, 90 min',
-      '3 рази на тиждень по 90 хв': '3 fois par semaine, 90 min',
-      '2 рази на тиждень по 45 хв': '2 fois par semaine, 45 min',
-      '90 хв у Zoom': '90 min sur Zoom',
-      '45 хв у Zoom': '45 min sur Zoom',
-    };
-    return translations[value] || value;
-  };
-
   showRates();
+  discountToggle?.addEventListener('change', updateDisplayedPrices);
+
+  function getPaymentPrice(rate) {
+    const rawPrice = String(rate.price ?? '').replace(/[^\d,.-]/g, '');
+    const basePrice = Number(rawPrice.replace(',', '.'));
+    if (!Number.isFinite(basePrice)) return 0;
+
+    const hasPackageDiscount =
+      discountToggle?.checked && Number(rate.quantity) > 1;
+    return hasPackageDiscount ? Math.round(basePrice * 0.9) : basePrice;
+  }
+
+  function formatPrice(price) {
+    return new Intl.NumberFormat('uk-UA', {
+      maximumFractionDigits: 0,
+    }).format(price);
+  }
+
+  function formatDuration(value) {
+    return String(value ?? '')
+      .replace(/^\((.*)\)$/, '$1')
+      .replace(/хв\.?(?=$|[\s.,);])/giu, 'хвилин');
+  }
+
+  function updateDisplayedPrices() {
+    ratesList.querySelectorAll('.payment-price').forEach((priceElement, index) => {
+      priceElement.textContent = `${formatPrice(getPaymentPrice(rates[index]))} грн`;
+    });
+  }
 
   function showRates() {
     ratesList.innerHTML = '';
@@ -33,28 +43,24 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       const rateElement = document.createElement('div');
       rateElement.classList.add('payment-card');
 
-      // убираем скобки из duration, если они есть
-      const duration = rate.duration.replace(/^\((.*)\)$/, '$1');
+      const duration = formatDuration(rate.duration);
 
       rateElement.innerHTML = `  
-        <div class="blob">
-          <img src="../assets/pictures/payment-card-graphic.svg" alt="Payment card graphic" />
-        </div>
-        <h3>${toFrench(rate.name)}</h3>
-        <div class="payment-sub">${toFrench(duration)}</div>
+        <h3>${rate.name}</h3>
+        <div class="payment-sub">${duration}</div>
         <div class="payment-count">${rate.quantity} ${pluralizeLessons(rate.quantity)}</div>
         <div class="payment-row">
-            <h3 class="payment-price">${rate.price} UAH</h3>
-            <a href="#" class="btn btn-teal">Payer</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">${formatPrice(getPaymentPrice(rate))} грн</div>
         </div>
       `;
 
       ratesList.appendChild(rateElement);
     });
-    const paymentCards = document.querySelectorAll('.payment-card');
-    paymentCards.forEach((card, index) => {
-      card.addEventListener('click', async () => {
-        const amount = rates[index].price * 100; // Convert to kopiykas
+    ratesList.querySelectorAll('.payment-button').forEach((button, index) => {
+      button.addEventListener('click', async (clickEvent) => {
+        clickEvent.preventDefault();
+        const amount = getPaymentPrice(rates[index]) * 100;
         const bill = await createBill(amount);
         window.location.href = bill.pageUrl;
       });
@@ -62,13 +68,14 @@ document.addEventListener('DOMContentLoaded', async (event) => {
   }
 
   function pluralizeLessons(count) {
-    const n = Math.abs(count) % 100;
-    const n1 = n % 10;
+    const number = Math.abs(Number(count));
+    const lastTwoDigits = number % 100;
+    const lastDigit = number % 10;
 
-    if (n > 10 && n < 20) return 'cours';
-    if (n1 > 1 && n1 < 5) return 'cours';
-    if (n1 === 1) return 'cours';
-    return 'cours';
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) return 'уроків';
+    if (lastDigit === 1) return 'урок';
+    if (lastDigit >= 2 && lastDigit <= 4) return 'уроки';
+    return 'уроків';
   }
 
   async function createBill(amount) {

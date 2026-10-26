@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     ratesList.innerHTML = '';
     const featuredPhotos = [
       {
-        src: 'assets/pictures/speaking-club.webp',
-        alt: 'Студенти спілкуються за кавою',
+        src: 'assets/pictures/picture_rates_1.webp',
+        alt: 'Студентки спілкуються за кавою',
       },
       {
-        src: 'assets/pictures/challenges.webp',
-        alt: 'Заняття французькою в мінігрупі',
+        src: 'assets/pictures/picture_rates_2.webp',
+        alt: 'Студенти займаються французькою на свіжому повітрі',
       },
     ];
 

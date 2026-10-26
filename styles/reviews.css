@@ -5,8 +5,9 @@
   padding: 64px 0 0 0;
 }
 .reviews-title {
-  color: var(--onsurface);
+  color: var(--main);
   margin: 0 0 32px;
+  text-align: center;
 }
 .reviews-title .accent {
   color: var(--main);
@@ -16,14 +17,33 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 .review-card {
-  background: var(--grey-light);
+  min-height: 264px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
   border-radius: var(--radius-lg);
   padding: 32px;
   position: relative;
   overflow: hidden;
+}
+.review-card::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  z-index: 0;
+  background: var(--grey-light);
+  border-radius: var(--radius-md);
+}
+.review-card .blob {
+  top: 16px !important;
+  right: 16px !important;
+  bottom: auto !important;
+  width: 140px;
+  height: 72px;
 }
 
 .review-text {
@@ -36,7 +56,8 @@
 }
 
 .review-author {
-  margin-top: 24px;
+  order: -1;
+  margin: 0 0 16px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -131,6 +152,16 @@
     flex: 0 0 83%;
     scroll-snap-align: start;
   }
+  .review-card::before {
+    inset: 8px;
+    border-radius: 12px;
+  }
+  .review-card .blob {
+    top: 8px !important;
+    right: 8px !important;
+    width: 112px;
+    height: 58px;
+  }
 
   .review-text {
     font-size: var(--text-md);
@@ -138,7 +169,7 @@
   }
 
   .review-author {
-    margin-top: 16px;
+    margin-bottom: 12px;
   }
   .review-avatar {
     width: 52px;
@@ -148,7 +179,7 @@
     margin-bottom: 4px;
   }
   .review-level {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   /* ================= GOOGLE BADGE ================= */

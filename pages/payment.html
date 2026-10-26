@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@500;700&family=Roboto+Condensed:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
@@ -22,18 +22,19 @@
       <div class="header-inner">
         <a href="../index.html#" class="brand">
           <img src="../assets/icons/icon-logo.svg" alt="Île-de-France" />
+          <span class="brand-title">Île-de-France</span>
         </a>
         <nav class="main-nav">
-          <a href="../index.html#" class="active">Головна</a>
+          <a href="../index.html#">Головна</a>
           <a href="../index.html#schedule">Розклад</a>
           <a href="../index.html#rates">Вартість</a>
           <a href="reviews.html">Відгуки</a>
-          <a href="faq.html">FAQ</a>
+          <a href="faq.html">Запитання</a>
         </nav>
         <div class="header-actions">
           <div class="icon-row">
             <a class="icon-btn" href="tel:+380970007996" aria-label="Телефон">
-              <img src="../assets/icons/icon_phone_normal.svg" alt="Phone" />
+              <img src="../assets/icons/icon_phone_normal.svg" alt="Телефон" />
             </a>
             <a
               class="icon-btn"
@@ -60,10 +61,10 @@
             <a
               class="icon-btn"
               href="mailto:iledefrancekiev@gmail.com"
-              aria-label="Email"
+              aria-label="Електронна пошта"
               target="_blank"
             >
-              <img src="../assets/icons/icon_email_normal.svg" alt="Email" />
+              <img src="../assets/icons/icon_email_normal.svg" alt="Електронна пошта" />
             </a>
           </div>
           <a href="payment.html" class="btn pay-pill">
@@ -98,37 +99,37 @@
           id="mobileMenuClose"
           aria-label="Закрити"
         >
-          <img src="../assets/icons/icon-close.svg" alt="Close" />
+          <img src="../assets/icons/icon-close.svg" alt="Закрити" />
         </button>
       </div>
 
       <nav class="mobile-menu-nav">
         <a href="../index.html#" class="mobile-menu-link">
           <h3>Головна</h3>
-          <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
+          <img src="../assets/icons/burger-arrow-right.svg" alt="Стрілка" />
         </a>
         <a href="../index.html#schedule" class="mobile-menu-link">
           <h3>Розклад</h3>
-          <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
+          <img src="../assets/icons/burger-arrow-right.svg" alt="Стрілка" />
         </a>
         <a href="../index.html#rates" class="mobile-menu-link">
           <h3>Вартість</h3>
-          <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
+          <img src="../assets/icons/burger-arrow-right.svg" alt="Стрілка" />
         </a>
         <a href="reviews.html" class="mobile-menu-link">
           <h3>Відгуки</h3>
-          <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
+          <img src="../assets/icons/burger-arrow-right.svg" alt="Стрілка" />
         </a>
         <a href="faq.html" class="mobile-menu-link">
-          <h3>FAQ</h3>
-          <img src="../assets/icons/burger-arrow-right.svg" alt="Arrow" />
+          <h3>Запитання</h3>
+          <img src="../assets/icons/burger-arrow-right.svg" alt="Стрілка" />
         </a>
       </nav>
 
       <div class="mobile-menu-bottom">
         <div class="mobile-menu-socials">
           <a class="icon-btn" href="tel:+380970007996" aria-label="Телефон">
-            <img src="../assets/icons/icon_phone_normal.svg" alt="Phone" />
+            <img src="../assets/icons/icon_phone_normal.svg" alt="Телефон" />
           </a>
           <a
             class="icon-btn"
@@ -155,10 +156,10 @@
           <a
             class="icon-btn"
             href="mailto:iledefrancekiev@gmail.com"
-            aria-label="Email"
+            aria-label="Електронна пошта"
             target="_blank"
           >
-            <img src="../assets/icons/icon_email_normal.svg" alt="Email" />
+            <img src="../assets/icons/icon_email_normal.svg" alt="Електронна пошта" />
           </a>
         </div>
 
@@ -176,7 +177,7 @@
     </div>
 
     <!-- ================= BREADCRUMBS ================= -->
-    <nav class="breadcrumbs" aria-label="Fil d’Ariane">
+    <nav class="breadcrumbs" aria-label="Навігаційний шлях">
       <a href="../index.html">Головна</a>
       <span class="sep">/</span>
       <span class="current">Оплата</span>
@@ -186,182 +187,103 @@
     <section class="payment-page">
       <div class="payment-head">
         <h2>Оплата</h2>
-        <p class="payment-note desktop">*10 % de réduction pour l’achat de 3 forfaits</p>
       </div>
 
       <div class="payment-grid">
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Premier cours en groupe</h3>
-          <div class="payment-sub">90 min sur Zoom</div>
-          <div class="payment-count">1 cours</div>
+          <h3>Перший урок у групі</h3>
+          <div class="payment-sub">90 хвилин у Zoom</div>
+          <div class="payment-count">1 урок</div>
           <div class="payment-row">
-            <div class="payment-price">150 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">150 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Premier cours pour enfant</h3>
-          <div class="payment-sub">45 min sur Zoom</div>
-          <div class="payment-count">1 cours</div>
+          <h3>Перший урок для дитини</h3>
+          <div class="payment-sub">45 хвилин у Zoom</div>
+          <div class="payment-count">1 урок</div>
           <div class="payment-row">
-            <div class="payment-price">300 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">300 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Premier cours individuel</h3>
-          <div class="payment-sub">90 min sur Zoom</div>
-          <div class="payment-count">1 cours</div>
+          <h3>Перший індивідуальний урок</h3>
+          <div class="payment-sub">90 хвилин у Zoom</div>
+          <div class="payment-count">1 урок</div>
           <div class="payment-row">
-            <div class="payment-price">600 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">600 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Formule « Deux fois »</h3>
-          <div class="payment-sub">2 fois par semaine, 90 min</div>
-          <div class="payment-count">8 cours</div>
+          <h3>Тариф «Двічі»</h3>
+          <div class="payment-sub">2 рази на тиждень по 90 хвилин</div>
+          <div class="payment-count">8 уроків</div>
           <div class="payment-row">
-            <div class="payment-price">2300 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">2300 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Formule « Trois fois »</h3>
-          <div class="payment-sub">3 fois par semaine, 90 min</div>
-          <div class="payment-count">12 cours</div>
+          <h3>Тариф «Тричі»</h3>
+          <div class="payment-sub">3 рази на тиждень по 90 хвилин</div>
+          <div class="payment-count">12 уроків</div>
           <div class="payment-row">
-            <div class="payment-price">2850 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">2850 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Formule « Ados »</h3>
-          <div class="payment-sub">2 fois par semaine, 45 min</div>
-          <div class="payment-count">8 cours</div>
+          <h3>Тариф «Для підлітків»</h3>
+          <div class="payment-sub">2 рази на тиждень по 45 хвилин</div>
+          <div class="payment-count">8 уроків</div>
           <div class="payment-row">
-            <div class="payment-price">1300 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">1300 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Formule « Individuel »</h3>
-          <div class="payment-sub">2 fois par semaine, 90 min</div>
-          <div class="payment-count">8 cours</div>
+          <h3>Індивідуальний тариф</h3>
+          <div class="payment-sub">2 рази на тиждень по 90 хвилин</div>
+          <div class="payment-count">8 уроків</div>
           <div class="payment-row">
-            <div class="payment-price">6000 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">6000 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Formule « À deux »</h3>
-          <div class="payment-sub">2 fois par semaine, 90 min</div>
-          <div class="payment-count">8 cours</div>
+          <h3>Тариф «Удвох»</h3>
+          <div class="payment-sub">2 рази на тиждень по 90 хвилин</div>
+          <div class="payment-count">8 уроків</div>
           <div class="payment-row">
-            <div class="payment-price">7400 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">7400 грн</div>
           </div>
         </article>
 
         <article class="payment-card">
-          <div class="blob">
-            <svg viewBox="0 0 200 200">
-              <path
-                fill="#ECEEFB"
-                d="M43.4,-58.3C55.6,-49.9,64.4,-36.2,68.7,-21.1C73,-6,72.8,10.5,66.6,24.4C60.4,38.3,48.2,49.6,34.3,58.1C20.4,66.6,4.8,72.3,-11.3,72.1C-27.4,71.9,-44,65.8,-55.4,54.4C-66.8,43,-73,26.3,-73.9,9.4C-74.8,-7.5,-70.4,-24.6,-60.4,-37.4C-50.4,-50.2,-34.8,-58.7,-19.1,-65.1C-3.4,-71.5,12.4,-75.8,26.5,-71.6C40.6,-67.4,53,-54.7,43.4,-58.3Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <h3>Formule « Enfants »</h3>
-          <div class="payment-sub">2 fois par semaine, 45 min</div>
-          <div class="payment-count">8 cours</div>
+          <h3>Дитячий тариф</h3>
+          <div class="payment-sub">2 рази на тиждень по 45 хвилин</div>
+          <div class="payment-count">8 уроків</div>
           <div class="payment-row">
-            <div class="payment-price">3000 UAH</div>
-            <a href="#" class="btn btn-teal btn-sm">Внести оплату</a>
+            <a href="#" class="btn btn-teal btn-sm payment-button">Оплатити</a>
+            <div class="payment-price">3000 грн</div>
           </div>
         </article>
       </div>
-      <p class="payment-note mobile">*10 % de réduction pour l’achat de 3 forfaits</p>
+      <label class="payment-note payment-discount">
+        <input id="package-discount" type="checkbox" />
+        <span>При оплаті трьох пакетів знижка 10%</span>
+      </label>
     </section>
 
     <!-- ================= FOOTER ================= -->
@@ -404,14 +326,14 @@
               <a href="../index.html#">Головна</a>
               <a href="reviews.html">Відгуки</a>
               <a href="../index.html#schedule">Розклад</a>
-              <a href="faq.html">FAQ</a>
+              <a href="faq.html">Запитання</a>
               <a href="../index.html#rates">Вартість</a>
             </div>
           </div>
           <div class="footer-col footer-contacts">
             <h5>Контакти</h5>
             <a class="phone-row" href="tel:+380970007996">
-              <img src="../assets/icons/icon_phone.svg" alt="Phone" />
+              <img src="../assets/icons/icon_phone.svg" alt="Телефон" />
               +38 (097) 000-79-96
             </a>
             <div class="icon-row">
@@ -420,7 +342,7 @@
                 href="tel:+380970007996"
                 aria-label="Телефон"
               >
-                <img src="../assets/icons/icon_phone_normal.svg" alt="Phone" />
+                <img src="../assets/icons/icon_phone_normal.svg" alt="Телефон" />
               </a>
               <a
                 class="icon-btn"
@@ -447,12 +369,13 @@
               <a
                 class="icon-btn"
                 href="mailto:iledefrancekiev@gmail.com"
-                aria-label="Email"
+                aria-label="Електронна пошта"
                 target="_blank"
               >
-                <img src="../assets/icons/icon_email_normal.svg" alt="Email" />
+                <img src="../assets/icons/icon_email_normal.svg" alt="Електронна пошта" />
               </a>
             </div>
+            <a class="footer-email" href="mailto:iledefrancekiev@gmail.com">iledefrancekiev@gmail.com</a>
           </div>
           <div class="footer-cta-wrap">
             <a
@@ -535,7 +458,7 @@
                 placeholder="+380632345678"
                 required
                 pattern="^\+?\d{6,15}$"
-                title="Chiffres uniquement, avec éventuellement un « + » au début (6 à 15 chiffres)"
+                title="Введіть від 6 до 15 цифр; на початку можна додати знак +."
               />
             </div>
           </div>
@@ -620,19 +543,19 @@
     <a
       href="https://t.me/iledefrance_school_bot"
       target="_blank"
-      class="chat-btn floating-btn"
+      class="chat-btn"
     >
-      <img src="../assets/icons/icon_chat.svg" alt="Chat" />
+      <img src="../assets/icons/icon_chat.svg" alt="Чат" />
     </a>
 
     <!-- ================= BUTTON UP ================= -->
     <a
       id="toTopBtn"
-      class="to-top-btn floating-btn"
+      class="to-top-btn"
       href="#top"
-      aria-label="Up"
+      aria-label="Вгору"
     >
-      <img src="../assets/icons/icon_up.svg" alt="Up" />
+      <img src="../assets/icons/icon_up.svg" alt="Вгору" />
     </a>
 
     <script

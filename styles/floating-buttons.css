@@ -52,9 +52,8 @@
   height: 100%;
   display: block;
   transition: filter 0.3s;
-  filter: invert(33%) sepia(13%) saturate(670%) hue-rotate(153deg)
-    brightness(91%) contrast(90%);
-  /* это для твоего стартового #5a808a */
+  filter: brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(1900%)
+    hue-rotate(202deg) brightness(92%) contrast(100%);
   transition:
     background-color 0.3s,
     transform 0.3s;
@@ -62,10 +61,6 @@
 
 .to-top-btn:hover img {
   opacity: 0.9;
-  /* это для целевого #d9ae4f */
   transform: scale(1.1); /* слегка увеличиваем */
 }
 
-.hidden {
-  display: none !important;
-}
