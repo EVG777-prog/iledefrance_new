@@ -45,9 +45,12 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       },
     ];
 
-    const visibleRates = rates.filter(
-      (rate) => !String(rate.name ?? '').toLocaleLowerCase('uk').includes('перший урок')
-    );
+    const excludedNames = ['перший урок', 'розмовний клуб'];
+
+    const visibleRates = rates.filter((rate) => {
+      const name = String(rate.name ?? '').toLocaleLowerCase('uk');
+      return !excludedNames.some((phrase) => name.includes(phrase));
+    });
 
     visibleRates.forEach((rate, index) => {
       const rateElement = document.createElement('div');
@@ -56,7 +59,9 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       if (isFeatured) rateElement.classList.add('rate-card-featured');
 
       const rateName = escapeHTML(rate.name);
-      const duration = escapeHTML(String(rate.duration ?? '').replace(/^\((.*)\)$/, '$1'));
+      const duration = escapeHTML(
+        String(rate.duration ?? '').replace(/^\((.*)\)$/, '$1')
+      );
       const price = escapeHTML(rate.price);
       const photo = featuredPhotos[index];
       const photoMarkup = photo
@@ -80,7 +85,8 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     });
 
     if (!ratesList.children.length) {
-      ratesList.innerHTML = '<p class="rates-loading">Наразі тарифів немає.</p>';
+      ratesList.innerHTML =
+        '<p class="rates-loading">Наразі тарифів немає.</p>';
       return;
     }
 

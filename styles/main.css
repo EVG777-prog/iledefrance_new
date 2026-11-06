@@ -9,10 +9,11 @@
   --strock: #e2e2e2;
   --white: #ffffff;
   --black-20: rgb(0 0 0 / 20%);
-  --radius-xl: 32px;
+  --radius-xl: 36px;
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 10px;
+  --radius-control: 16px;
   --wrap: 1440px;
   --card-w: 416px;
   --shadow-soft: 0 20px 40px -24px rgba(0, 0, 0, 0.18);
@@ -117,7 +118,7 @@ section {
   justify-content: center;
   gap: 8px;
   padding: 10px 24px 12px 24px;
-  border-radius: 100px;
+  border-radius: var(--radius-control);
   box-sizing: border-box;
   font-family: var(--font-headline);
   font-weight: 500;
@@ -197,7 +198,7 @@ section {
   max-width: var(--wrap);
   margin: 0 auto;
   background: var(--white);
-  border-radius: 100px;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -216,8 +217,15 @@ section {
   width: 60px;
 }
 
-.brand-title {
-  display: none;
+.site-header .header-inner > .brand {
+  width: 67px;
+  flex: 0 0 67px;
+  margin-left: 10px;
+}
+
+.site-header .header-inner > .brand img {
+  display: block;
+  width: 100%;
 }
 
 .main-nav {
@@ -315,7 +323,7 @@ section {
   gap: 10px;
   background: var(--white);
   border: 1px solid var(--main);
-  border-radius: 100px;
+  border-radius: var(--radius-control);
   padding: 10px 16px 12px 16px;
   font-weight: 500;
   /* font-size: var(--text-sm); */
@@ -489,7 +497,7 @@ body.menu-open {
 }
 .footer-tagline {
   margin-top: 12px;
-  font-size: var(--text-md);
+  font-size: 18px;
   line-height: 1.35;
   color: var(--grey-dark);
 }
@@ -513,7 +521,7 @@ body.menu-open {
   gap: 10px 20px;
 }
 .footer-links a {
-  font-size: var(--text-xs);
+  font-size: 16px;
   color: var(--grey-dark);
 }
 .footer-links a:hover {
@@ -754,23 +762,14 @@ body.menu-open {
   .site-header .header-inner > .brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: auto;
+    width: 44px;
+    flex: 0 0 44px;
     min-width: 0;
-    color: var(--main);
-    font-size: 16px;
-    font-weight: 700;
-    white-space: nowrap;
   }
 
   .site-header .header-inner > .brand img {
     display: block;
-    width: 40px;
-    flex: 0 0 40px;
-  }
-
-  .site-header .header-inner > .brand .brand-title {
-    display: inline;
+    width: 44px;
   }
 
   .footer-inner {
@@ -794,7 +793,7 @@ body.menu-open {
 
   .footer-tagline {
     margin-top: 12px;
-    font-size: var(--text-md);
+    font-size: 18px;
   }
 
   .footer-col h5 {
@@ -808,7 +807,7 @@ body.menu-open {
   }
 
   .footer-links a {
-    font-size: var(--text-md);
+    font-size: 16px;
   }
 
   .footer-contacts .phone-row {

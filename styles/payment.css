@@ -127,7 +127,7 @@
   align-self: flex-start;
   margin: 0;
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: var(--white);
   color: var(--main);
   font-size: var(--text-md);

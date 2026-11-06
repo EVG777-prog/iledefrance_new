@@ -60,7 +60,7 @@
 
 .faq-item {
   background: var(--white);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@
   margin: 0;
   overflow: hidden;
   min-height: 0;
-  font-size: var(--text-xs);
+  font-size: 18px;
   line-height: 1.45;
   color: var(--grey-dark);
   padding: 0 16px;
@@ -183,6 +183,6 @@
   }
 
   .faq-answer p {
-    font-size: var(--text-xs);
+    font-size: 16px;
   }
 }
