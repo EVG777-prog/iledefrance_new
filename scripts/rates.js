@@ -17,7 +17,11 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
   const getFormatLabel = (rateName) => {
     if (rateName.includes('Удвох')) return 'Навчання в парі';
-    if (rateName.includes('Лише ти') || rateName.includes('Дитячий')) {
+    if (
+      rateName.includes('Лише ти') ||
+      rateName.includes('Дитячий') ||
+      rateName.includes('Індивідуальні заняття')
+    ) {
       return 'Індивідуальні заняття 1 на 1';
     }
     return 'Міні-група до 6 осіб';
@@ -59,10 +63,30 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       if (isFeatured) rateElement.classList.add('rate-card-featured');
 
       const rateName = escapeHTML(rate.name);
-      const duration = escapeHTML(
-        String(rate.duration ?? '').replace(/^\((.*)\)$/, '$1')
-      );
+      const rawDuration = String(rate.duration ?? '')
+        .replace(/^\((.*)\)$/, '$1')
+        .replace(/\*\*/g, '')
+        .trim()
+        .replace(/[.。]\s*$/, '');
+      const quantity = String(rate.quantity ?? '').trim();
+      const description = [
+        quantity ? `${quantity} уроків` : '',
+        rawDuration ? `(${rawDuration})` : '',
+      ]
+        .filter(Boolean)
+        .join(' ');
+      const isPair = String(rate.name ?? '').includes('Удвох');
+      const formattedDescription = `${description}${isPair ? ', ціна за 2 учнів' : ''}`;
+      const safeDescription = escapeHTML(formattedDescription);
       const price = escapeHTML(rate.price);
+      const sourceName = String(rate.name ?? '');
+      const formatLabel = getFormatLabel(sourceName);
+      const isIndividual =
+        sourceName.includes('Індивідуальні заняття') ||
+        formatLabel.includes('Індивідуальні заняття');
+      const formatIcon = isIndividual
+        ? 'assets/icons/icon_list_bullet_cruaissan.svg'
+        : 'assets/icons/icon_list_bullet.svg';
       const photo = featuredPhotos[index];
       const photoMarkup = photo
         ? `<div class="rate-card-photo"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" /></div>`
@@ -71,9 +95,9 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       rateElement.innerHTML = `
                 ${photoMarkup}
                 <div class="rate-card-content">
-                <div class="rate-format">${getFormatLabel(String(rate.name ?? ''))}</div>
+                <div class="rate-format"><img src="${formatIcon}" alt="" aria-hidden="true" />${formatLabel}</div>
                 <h3>${rateName}</h3>
-                <div class="freq">${duration}</div>
+                <div class="freq">${safeDescription}</div>
                 <div class="rate-card-footer">
                   <div class="price">${price} грн</div>
                   <a href="#booking" class="btn btn-teal">Записатись</a>

@@ -179,7 +179,7 @@
 }
 .challenges-title {
   margin: 0 auto 32px;
-  color: var(--main);
+  color: #000;
   text-align: center;
 }
 .challenges-title span {
@@ -206,9 +206,9 @@
   grid-column: span 7;
 }
 .challenges-photo {
-  height: 296px;
-  min-height: 296px;
-  padding: 12px;
+  height: 265px;
+  min-height: 265px;
+  padding: 16px;
   background: var(--white);
   border-radius: var(--radius-xl);
   position: relative;
@@ -217,32 +217,32 @@
 .challenges-photo img {
   width: 100%;
   height: 100%;
-  min-height: 272px;
+  min-height: 233px;
   display: block;
   object-fit: cover;
   border-radius: var(--radius-lg);
 }
 .challenges-card {
-  min-height: 296px;
-  padding: 12px;
+  min-height: 265px;
+  padding: 16px;
   background: var(--white);
   border-radius: var(--radius-xl);
 }
 .challenges-card-inner {
   height: 100%;
-  min-height: 272px;
-  padding: 28px;
+  min-height: 233px;
+  padding: 24px;
   background: var(--grey-light);
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .challenges-tag {
   display: flex;
-  margin-bottom: 34px;
+  margin-bottom: 48px;
   height: 38px;
   width: fit-content;
   align-items: center;
@@ -261,8 +261,8 @@
 .challenges-card h3 {
   position: relative;
   z-index: 2;
-  color: var(--main);
-  margin-bottom: 4px;
+  color: #000;
+  margin-bottom: 8px;
 }
 .challenges-card p {
   font-size: var(--text-lg);
@@ -289,6 +289,7 @@
 .why-title {
   max-width: var(--wrap);
   margin: 0 auto 32px;
+  color: #000;
   text-align: center;
 }
 .why-title span {
@@ -307,14 +308,14 @@
   gap: 24px;
 }
 .why-card {
-  padding: 12px;
+  padding: 16px;
   border-radius: 24px;
   background: var(--white);
 }
 .why-card-inner {
   min-height: 100%;
   box-sizing: border-box;
-  padding: 26px;
+  padding: 24px;
   border-radius: 16px;
   background: var(--grey-light);
   display: flex;
@@ -346,13 +347,15 @@
 .why-card p {
   margin: 0;
   font-size: var(--text-lg);
-  line-height: 1.4;
+  line-height: 1.2;
   color: var(--grey-dark);
 }
 .why-photo {
-  min-height: 100%;
+  width: 100%;
+  max-width: 437px;
+  aspect-ratio: 437 / 536;
   box-sizing: border-box;
-  padding: 12px;
+  padding: 16px;
   border-radius: 32px;
   background: var(--white);
 }
@@ -360,7 +363,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 470px;
+  min-height: 0;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -385,7 +388,7 @@
   flex-wrap: wrap;
 }
 .rates-head h2 {
-  color: var(--main);
+  color: #000;
 }
 .rates-head h2 span {
   color: var(--main);
@@ -416,7 +419,7 @@
   min-height: 190px;
   background: var(--grey-light);
   border-radius: var(--radius-lg);
-  padding: 26px;
+  padding: 24px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -434,7 +437,7 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
   align-items: stretch;
   gap: 18px;
-  padding: 18px;
+  padding: 24px;
 }
 .rate-card-photo {
   min-width: 0;
@@ -462,7 +465,10 @@
   color: var(--main);
 }
 .rate-format {
+  display: inline-flex;
   align-self: flex-start;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 30px;
   padding: 8px 14px;
   border-radius: var(--radius-control);
@@ -471,6 +477,12 @@
   font-size: var(--text-md);
   position: relative;
   z-index: 2;
+}
+.rate-format img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
 }
 .rate-card .freq {
   font-size: var(--text-md);
@@ -535,7 +547,7 @@
   margin: 0 auto;
   background: var(--white);
   border-radius: 48px;
-  padding: 64px;
+  padding: 48px;
   position: relative;
   overflow: hidden;
 }
@@ -550,7 +562,7 @@
   z-index: 2;
 }
 .teachers-head h2 {
-  color: var(--main);
+  color: #000;
   font-size: var(--text-3xl);
   font-weight: 500;
 }
@@ -580,7 +592,7 @@
   height: 90%;
 }
 .teachers-grid {
-  margin-top: 48px;
+  margin-top: 32px;
   display: flex;
   gap: 24px;
   overflow-x: auto;
@@ -600,7 +612,7 @@
   scroll-snap-align: start;
   background: var(--grey-light);
   border-radius: 44px;
-  padding: 24px;
+  padding: 16px;
   overflow: hidden;
 }
 .teacher-photo {
@@ -701,7 +713,7 @@
 .cert-card {
   background: var(--white);
   border-radius: 48px;
-  padding: 40px;
+  padding: 16px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -723,14 +735,14 @@
 .cert-card h2 {
   position: relative;
   z-index: 2;
-  color: var(--main);
+  color: #000;
   font-size: var(--text-3xl);
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: 0;
 }
 .cert-card h2 .accent {
-  color: var(--main);
+  color: #000;
 }
 .cert-card p {
   font-size: var(--text-lg);
@@ -1003,7 +1015,7 @@
 
   .challenges-photo,
   .challenges-card {
-    min-height: 280px;
+    min-height: 265px;
   }
 
   .why-grid {
@@ -1090,9 +1102,12 @@
   .challenges-card,
   .cert-card,
   .club-card,
-  .why-us-inner,
-  .teachers-inner {
+  .why-us-inner {
     padding: 20px;
+  }
+
+  .teachers-inner {
+    padding: 48px;
   }
 
   .why-grid {
@@ -1194,16 +1209,16 @@
 
   .challenges-card {
     min-height: 0;
-    padding: 10px;
+    padding: 16px;
   }
 
   .challenges-card-inner {
-    min-height: 240px;
-    padding: 20px;
+    min-height: 233px;
+    padding: 24px 16px 16px;
   }
 
   .challenges-tag {
-    margin-bottom: 20px;
+    margin-bottom: 48px;
   }
 
   .challenges-card p {
@@ -1222,11 +1237,11 @@
 
   .why-card {
     border-radius: 16px;
-    padding: 8px;
+    padding: 16px;
   }
 
   .why-card-inner {
-    padding: 18px;
+    padding: 24px 18px 18px;
     border-radius: 11px;
   }
 
@@ -1241,11 +1256,14 @@
 
   .why-card p {
     font-size: var(--text-md);
-    line-height: 1.39;
+    line-height: 1.2;
   }
 
   .why-photo {
+    width: 100%;
+    max-width: none;
     height: 280px;
+    aspect-ratio: auto;
     min-height: 0;
     padding: 8px;
     border-radius: 20px;
@@ -1286,7 +1304,7 @@
 
   .rate-card {
     border-radius: 16px;
-    padding: 16px;
+    padding: 24px;
     flex: 0 0 83%;
     scroll-snap-align: start;
   }
@@ -1368,7 +1386,7 @@
   }
 
   .teachers-inner {
-    padding: 12px;
+    padding: 48px;
     border-radius: var(--radius-lg);
   }
 
@@ -1379,7 +1397,7 @@
 
   .teacher-card {
     flex-basis: 100%;
-    padding: 12px;
+    padding: 16px;
     border-radius: 16px;
   }
 
@@ -1396,7 +1414,7 @@
   }
 
   .teachers-grid {
-    margin-top: 20px;
+    margin-top: 32px;
     gap: 24px;
   }
 
@@ -1425,6 +1443,7 @@
 
   .cert-card {
     border-radius: var(--radius-lg);
+    padding: 16px;
   }
 
   .cert-card h2 {
