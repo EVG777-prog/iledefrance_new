@@ -232,21 +232,7 @@ function scheduleRenderGroupCards() {
             <li>${CARD_BULLET_ICON}Вартість: &nbsp;<b>${priceLine}</b></li>
           </ul>
           <a href="#booking" class="group-link">
-            Записатися
-            <svg class="arrow-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.43 5.92982L20.5 11.9998L14.43 18.0698"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"/>
-              <path d="M3.50008 12L20.3301 12"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"/>
-            </svg>
+            Записатись
           </a>
           </div>
         </div>
