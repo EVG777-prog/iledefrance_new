@@ -158,9 +158,9 @@
 }
 .payment-button {
   order: 2;
-  height: 60px;
-  padding: 12px 28px;
-  font-size: var(--text-xl);
+  height: 47px;
+  padding: 10px 24px 12px;
+  font-size: 20px;
 }
 .payment-button:hover {
   opacity: 1;
@@ -220,9 +220,9 @@
     font-size: 20px;
   }
   .payment-button {
-    height: 48px;
-    padding: 10px 20px;
-    font-size: 18px;
+    height: 47px;
+    padding: 10px 24px 12px;
+    font-size: 20px;
   }
   .payment-row {
     padding-top: 12px;
