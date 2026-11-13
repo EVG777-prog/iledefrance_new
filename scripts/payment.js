@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   function formatPrice(price) {
     return new Intl.NumberFormat('uk-UA', {
       maximumFractionDigits: 0,
-    }).format(price);
+      useGrouping: true,
+    })
+      .format(price)
+      .replace(/[\u00a0\u202f]/g, ' ');
   }
 
   function formatDuration(value) {

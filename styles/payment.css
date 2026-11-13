@@ -2,7 +2,7 @@
 .payment-page {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  row-gap: 24px;
+  row-gap: 32px;
   max-width: var(--wrap);
   margin: 0 auto;
   padding: 64px 0 0;
@@ -79,17 +79,18 @@
   grid-row: 2;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: minmax(286px, auto);
+  grid-auto-rows: auto;
   gap: 24px;
 }
 
 .payment-card {
   min-width: 0;
+  align-self: start;
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 32px;
+  border-radius: 32px;
+  padding: 40px;
   position: relative;
   overflow: hidden;
 }
@@ -99,7 +100,7 @@
   inset: 16px;
   z-index: 0;
   background: var(--grey-light);
-  border-radius: var(--radius-md);
+  border-radius: 24px;
 }
 .payment-card h3,
 .payment-card .payment-sub,
@@ -110,27 +111,30 @@
 }
 .payment-card h3 {
   order: 1;
-  margin-top: 16px;
+  margin-top: 32px;
+  margin-right: -10px;
   color: var(--onsurface);
+  font-size: 25px;
 }
 .payment-sub {
   order: 2;
-  margin-top: 4px;
-  font-size: var(--text-md);
+  margin-top: 8px;
+  font-size: 16px;
+  letter-spacing: 0.01em;
   color: var(--grey-dark);
 }
 .payment-count {
   order: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   align-self: flex-start;
   margin: 0;
-  padding: 6px 12px;
-  border-radius: var(--radius-control);
+  padding: 8px 12px;
+  border-radius: 12px;
   background: var(--white);
   color: var(--main);
-  font-size: var(--text-md);
+  font-size: 16px;
   line-height: 1.2;
 }
 .payment-count::before {
@@ -142,8 +146,7 @@
 }
 .payment-row {
   order: 4;
-  margin-top: auto;
-  padding-top: 16px;
+  margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,7 +156,7 @@
   color: var(--onsurface);
   order: 1;
   font-family: var(--font-headline);
-  font-size: var(--text-h4);
+  font-size: 25px;
   font-weight: 500;
 }
 .payment-button {
@@ -175,7 +178,7 @@
 }
 @media (max-width: 620px) {
   .payment-page {
-    row-gap: 16px;
+    row-gap: 32px;
     padding: 32px 0 0;
   }
 
@@ -192,7 +195,7 @@
   .payment-grid {
     grid-row: 3;
     grid-template-columns: 1fr;
-    grid-auto-rows: minmax(250px, auto);
+    grid-auto-rows: auto;
     gap: 12px;
   }
 
@@ -201,23 +204,23 @@
   }
 
   .payment-card {
-    border-radius: 16px;
-    padding: 24px;
+    border-radius: 32px;
+    padding: 40px;
   }
   .payment-card::before {
-    inset: 12px;
-    border-radius: 12px;
+    inset: 16px;
+    border-radius: 24px;
   }
   .payment-sub {
-    margin-top: 4px;
-    font-size: 14px;
+    margin-top: 8px;
+    font-size: 16px;
   }
   .payment-count {
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 8px 12px;
+    font-size: 16px;
   }
   .payment-price {
-    font-size: 20px;
+    font-size: 25px;
   }
   .payment-button {
     height: 47px;
@@ -225,7 +228,7 @@
     font-size: 20px;
   }
   .payment-row {
-    padding-top: 12px;
+    padding-top: 0;
     gap: 12px;
   }
 }

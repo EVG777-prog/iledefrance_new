@@ -451,7 +451,7 @@ body.menu-open {
 
 /* ================= FOOTER ================= */
 .site-footer {
-  padding: 48px 0 0;
+  padding: 100px 0 0;
 }
 .footer-inner {
   position: relative;
@@ -459,16 +459,16 @@ body.menu-open {
   max-width: var(--wrap);
   margin: 0 auto;
   background: var(--white);
-  border-radius: 34px;
-  padding: 15px 15px 0;
+  border-radius: 48px;
+  padding: 24px;
 }
 .footer-inner::before {
   content: '';
   position: absolute;
-  inset: 15px;
+  inset: 24px;
   z-index: 0;
   background: var(--grey-light);
-  border-radius: 24px;
+  border-radius: 36px;
 }
 .footer-inner > * {
   position: relative;
@@ -476,7 +476,7 @@ body.menu-open {
 }
 .footer-panel {
   background: transparent;
-  border-radius: 0;
+  border-radius: 36px;
   padding: 32px;
 }
 .footer-top {
@@ -754,7 +754,7 @@ body.menu-open {
   }
 
   .site-footer {
-    padding-top: 56px;
+    padding-top: 100px;
   }
 
   .footer-bottom {
@@ -775,17 +775,17 @@ body.menu-open {
   }
 
   .footer-inner {
-    border-radius: 26px;
-    padding: 10px 10px 0;
+    border-radius: 48px;
+    padding: 24px;
   }
 
   .footer-inner::before {
-    inset: 10px;
-    border-radius: 18px;
+    inset: 24px;
+    border-radius: 36px;
   }
 
   .footer-panel {
-    padding: 16px;
+    padding: 32px;
   }
 
   .footer-top {

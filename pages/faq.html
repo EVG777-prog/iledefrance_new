@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
-    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/main.css?v=header-wrap-20261024" />
     <link rel="stylesheet" href="../styles/faq.css" />
     <link rel="stylesheet" href="../styles/booking-modal.css" />
     <link rel="stylesheet" href="../styles/floating-buttons.css" />
@@ -28,7 +28,7 @@
           <a href="../index.html#schedule">Розклад</a>
           <a href="../index.html#rates">Вартість</a>
           <a href="reviews.html">Відгуки</a>
-          <a href="faq.html">Запитання</a>
+          <a href="faq.html">FAQ</a>
         </nav>
         <div class="header-actions">
           <div class="icon-row">
@@ -203,129 +203,7 @@
             <span class="accent">Відповіді</span> на ваші запитання
           </h2>
 
-          <div class="faq-list">
-            <div class="faq-item is-open">
-              <button class="faq-question" type="button">
-                <h4>Скільки часу потрібно, щоб опанувати один рівень?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Є шість рівнів. У середньому навчання триває:
-                  <br /><br />• A1 — 3–4 місяці <br />• A2 — 3–4 місяці <br />•
-                  B1 — 4–6 місяців <br />• B2 — 5–7 місяців <br />• C1 — 8–10
-                  місяців <br /><br />Тривалість залежить від вашої
-                  відвідуваності, активності на заняттях і самостійної роботи 😊
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <h4>Скільки студентів у групі?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  У групі зазвичай 3–4 студенти, максимум — 6. Так викладач може
-                  приділити достатньо уваги кожному.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <h4>Чи видаєте ви сертифікати?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Так. Після завершення курсу кожен студент отримує сертифікат,
-                  що підтверджує його рівень.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <h4>Чи будуть домашні завдання?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Так. Домашні завдання допомагають закріпити знання та
-                  просуватися вперед між заняттями.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <h4>Чи потрібно купувати підручники?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Ні. Ми надаємо всі навчальні матеріали, тому купувати
-                  підручники не потрібно.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <h4>Що потрібно для занять?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Достатньо комп’ютера або смартфона зі стабільним інтернетом та
-                  застосунком Zoom.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <h4>Чи можна пропускати заняття?</h4>
-                <img
-                  class="faq-icon"
-                  src="../assets/icons/icon-select-open.svg"
-                  alt="Розгорнути відповідь"
-                />
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Так. Якщо ви пропустили заняття, перегляньте його запис, щоб
-                  не відставати від групи.
-                </p>
-              </div>
-            </div>
-          </div>
+          <div class="faq-list"></div>
         </div>
       </div>
     </section>
@@ -602,21 +480,8 @@
       <img src="../assets/icons/icon_up.svg" alt="Вгору" />
     </a>
 
-    <script>
-      // FAQ accordion — one item open at a time
-      document.querySelectorAll('.faq-question').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const item = btn.closest('.faq-item');
-          const isOpen = item.classList.contains('is-open');
-
-          document
-            .querySelectorAll('.faq-item.is-open')
-            .forEach((openItem) => openItem.classList.remove('is-open'));
-
-          if (!isOpen) item.classList.add('is-open');
-        });
-      });
-    </script>
+    <script src="../data/faq.js"></script>
+    <script src="../scripts/faq.js"></script>
 
     <script
       type="text/javascript"
