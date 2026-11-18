@@ -98,6 +98,9 @@
   padding: 0 0 8px;
   margin-right: 0;
 }
+.group-rows .group-schedule-value {
+  font-size: 16px;
+}
 .group-dot {
   display: inline-block;
   flex: 0 0 12px;
@@ -110,7 +113,7 @@
 }
 .group-rows li b {
   color: var(--grey-dark);
-  font-weight: 700;
+  font-weight: inherit;
 }
 .group-rows .yt-icon {
   color: #ff0000;
@@ -318,7 +321,7 @@
   }
   .schedule-head p {
     margin-top: 8px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .schedule-filters {
@@ -334,7 +337,7 @@
     height: 40px;
     padding: 8px 16px;
     border-width: 3px;
-    font-size: 18px;
+    font-size: 16px;
   }
   .custom-select__arrow {
     width: 28px;
@@ -342,7 +345,7 @@
   }
 
   .custom-select__option {
-    font-size: 12px;
+    font-size: 16px;
   }
   .custom-select__menu {
     top: calc(100% - 3px);
@@ -357,6 +360,7 @@
     overflow-x: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
     margin-top: 24px;
@@ -366,23 +370,28 @@
   .schedule-grid::-webkit-scrollbar {
     display: none;
   }
+  .schedule-grid::after {
+    content: '';
+    flex: 0 0 17%;
+  }
 
   .group-card {
     flex: 0 0 83%;
     scroll-snap-align: start;
-    padding: 10px;
-    border-radius: 24px;
+    scroll-margin-inline: 0;
+    padding: 12px;
+    border-radius: 32px;
   }
   .group-card-inner {
     min-height: 230px;
     padding: 16px;
-    border-radius: 18px;
+    border-radius: 24px;
   }
   .group-head h3 {
-    font-size: 25px;
+    font-size: 20px;
   }
   .status-pill {
-    font-size: 10px;
+    font-size: 12px;
     padding: 6px 9px;
     border-radius: 12px;
   }
@@ -390,7 +399,7 @@
     margin-top: 14px;
   }
   .group-rows li {
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 0;
     padding-bottom: 5px;
   }
@@ -401,6 +410,7 @@
     min-height: 48px;
     border-radius: var(--radius-control);
     font-size: 20px;
+    margin-top: 16px;
   }
   .yt-icon {
     width: 22px;

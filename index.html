@@ -202,19 +202,19 @@
               <span
                 class="a1"
                 style="
-                  background-image: url('assets/pictures/intro-photo_1.webp');
+                  background-image: url('assets/pictures/intro-photo_1.png');
                 "
               ></span>
               <span
                 class="a2"
                 style="
-                  background-image: url('assets/pictures/intro-photo_2.webp');
+                  background-image: url('assets/pictures/intro-photo_2.png');
                 "
               ></span>
               <span
                 class="a3"
                 style="
-                  background-image: url('assets/pictures/intro-photo_3.webp');
+                  background-image: url('assets/pictures/intro-photo_3.png');
                 "
               ></span>
             </div>
@@ -250,14 +250,16 @@
                   src="assets/icons/icon_list_bullet.svg"
                   alt="Позначка списку"
                 />
-                живі заняття з викладачем
+                <span class="feature-label-desktop">живі заняття з викладачем</span>
+                <span class="feature-label-mobile">живі заняття</span>
               </span>
               <span class="feature-pill">
                 <img
                   src="assets/icons/icon_list_bullet.svg"
                   alt="Позначка списку"
                 />
-                комунікативна методика
+                <span class="feature-label-desktop">комунікативна методика</span>
+                <span class="feature-label-mobile">багато розмов</span>
               </span>
             </div>
           </div>
@@ -282,7 +284,7 @@
     <!-- ================= CHALLENGES ================= -->
     <section class="challenges">
       <h2 class="challenges-title">
-        <span>Французька</span> для життя та натхнення
+        <span>Французька</span> для життя та&nbsp;натхнення
       </h2>
       <div class="challenges-grid">
         <article class="challenges-card challenges-about">
@@ -370,7 +372,7 @@
             <div class="why-card-inner">
               <span class="why-mark" aria-hidden="true">
                 <img
-                  src="assets/icons/icon_why-us_2.svg"
+                  src="assets/icons/icon_why-us_1.svg"
                   alt="Позначка списку"
                 />
               </span>
@@ -420,6 +422,12 @@
           />
         </div>
       </div>
+      <img
+        class="why-mobile-decoration"
+        src="assets/pictures/decorative-graphic_why-us_mobile.svg"
+        alt=""
+        aria-hidden="true"
+      />
     </section>
 
     <!-- ================= rates ================= -->
@@ -444,6 +452,11 @@
         <p class="rates-note">
           Оплата здійснюється щомісяця відповідно до обраного тарифу. Оплата
           тарифу не передбачає повернення коштів.
+        </p>
+        <p class="rates-note rates-note-mobile">
+          Бонус до кожного тарифу: безкоштовний Розмовний клуб та знижка -10%
+          при оплаті 3-х місяців. Оплата здійснюється щомісяця відповідно до
+          обраного тарифу. Оплата тарифу не передбачає повернення коштів.
         </p>
       </div>
     </section>
@@ -783,118 +796,48 @@
           &times;
         </button>
 
-        <h3 id="booking-modal-title">Записатись на пробний урок</h3>
+        <h3 id="booking-modal-title">Записатися на пробний урок</h3>
 
         <form class="booking-form" id="booking-form" novalidate>
           <div class="booking-row">
             <div class="booking-field" data-field="name">
-              <label for="booking-name"
-                >Ваше ім&#8217;я<span class="req">*</span></label
-              >
-              <input
-                type="text"
-                id="booking-name"
-                name="name"
-                placeholder="Vladyslava"
-                required
-                pattern="^[A-Za-zÀ-ÖØ-öø-ÿŒœÆæА-Яа-яЁёЇїІіЄєҐґ'\-`’ʼ\s]+$"
-                title="Використовуйте лише літери, пробіли, апострофи та дефіси."
-              />
+              <label for="booking-name">Ваше ім’я<span class="req">*</span></label>
+              <input type="text" id="booking-name" name="name" placeholder="Введіть ваше ім’я" required />
             </div>
-            <div class="booking-field" data-field="phone">
-              <label for="booking-contact"
-                >Номер телефону<span class="req">*</span></label
-              >
-              <input
-                type="tel"
-                id="booking-phone"
-                name="phone"
-                placeholder="+380632345678"
-                required
-                pattern="^\+?\d{6,15}$"
-                title="Введіть від 6 до 15 цифр; на початку можна додати знак +."
-              />
+            <div class="booking-field" data-field="telegram">
+              <label for="booking-telegram">Ваш телефон або нік в Telegram<span class="req">*</span></label>
+              <input type="text" id="booking-telegram" name="telegram" placeholder="Введіть ваші контактні дані" required />
             </div>
           </div>
           <div class="booking-row">
-            <div class="booking-field" data-field="telegram">
-              <label for="booking-telegram"
-                >Нікнейм у Telegram<span class="req">*</span></label
-              >
-              <input
-                type="text"
-                id="booking-telegram"
-                name="telegram"
-                placeholder="@vlada.vlada"
-                required
-              />
-            </div>
             <div class="booking-field" data-field="experience">
-              <label for="booking-experience"
-                >Чи вивчали ви раніше французьку?<span class="req"
-                  >*</span
-                ></label
-              >
+              <label for="booking-experience">Ви раніше вивчали французьку мову?<span class="req">*</span></label>
               <div class="booking-select-wrap">
                 <select id="booking-experience" name="experience" required>
-                  <option value="none" selected>
-                    Ні, планую вивчати з нуля
-                  </option>
-                  <option value="a1">Так, рівень А1</option>
-                  <option value="a2">Так, рівень А2</option>
-                  <option value="b1">Так, рівень В1</option>
-                  <option value="b2">Так, рівень В2</option>
-                  <option value="c1-plus">Так, рівень С1+</option>
+                  <option value="none" selected>Ні, потрібно з нуля</option>
+                  <option value="a1">Так, рівень A1</option>
+                  <option value="a2">Так, рівень A2</option>
+                  <option value="b1">Так, рівень B1</option>
+                  <option value="b2">Так, рівень B2</option>
+                  <option value="c1-plus">Так, рівень C1+</option>
                   <option value="unknown">Так, але не знаю свій рівень</option>
                 </select>
-                <svg
-                  class="booking-select-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
+                <svg class="booking-select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6" /></svg>
+              </div>
+            </div>
+            <div class="booking-field" data-field="format">
+              <label for="booking-format">Формат навчання<span class="req">*</span></label>
+              <div class="booking-select-wrap">
+                <select id="booking-format" name="format" required>
+                  <option value="mini-group">Мінігрупа</option>
+                  <option value="individual">Індивідуальні заняття</option>
+                </select>
+                <svg class="booking-select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6" /></svg>
               </div>
             </div>
           </div>
-          <div class="booking-field" data-field="format">
-            <label for="booking-format"
-              >Формат занять<span class="req">*</span></label
-            >
-            <div class="booking-select-wrap">
-              <select id="booking-format" name="format" required>
-                <option value="mini-group">Мінігрупа</option>
-                <option value="individual">Індивідуальні заняття</option>
-              </select>
-              <svg
-                class="booking-select-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </div>
-          </div>
-          <p class="booking-agreement">
-            *Натискаючи на кнопку “Залишити заявку” ви погоджуєтеся з умовами
-            <a
-              href="assets/documents/offer-students.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Публічної оферти
-            </a>
-          </p>
-
-          <button type="submit" class="btn btn-orange booking-submit">
-            Записатись на урок
-          </button>
+          <p class="booking-agreement">*Натискаючи на кнопку “Залишити заявку” ви погоджуєтеся з умовами <a href="assets/documents/offer-students.pdf" target="_blank" rel="noopener noreferrer">Публічної оферти</a></p>
+          <button type="submit" class="btn btn-orange booking-submit">Записатися на урок</button>
         </form>
       </div>
     </div>

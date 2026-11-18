@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function sendBookingEmail(data) {
     return sendEmail({
       name: data.name,
-      telegram: data.contact,
-      experience: data.level,
+      telegram: data.telegram,
+      experience: data.experience,
       language: 'French',
     });
   }

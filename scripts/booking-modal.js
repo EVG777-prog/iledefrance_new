@@ -94,7 +94,6 @@
 
       const data = {
         name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
         telegram: form.telegram.value.trim(),
         experience: form.experience.value,
         format: form.format.value,

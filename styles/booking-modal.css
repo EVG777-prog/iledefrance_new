@@ -19,18 +19,18 @@
 .modal-booking {
   position: relative;
   width: 100%;
-  max-width: 812px;
+  max-width: 1008px;
   background: var(--white);
-  border-radius: 40px;
-  padding: 56px;
+  border-radius: 50px;
+  padding: 64px 69px 66px;
   box-shadow: 0 28px 70px rgba(14, 31, 58, 0.24);
 }
 .modal-booking::before {
   content: '';
   position: absolute;
-  inset: 24px;
+  inset: 29px;
   z-index: 0;
-  border-radius: 32px;
+  border-radius: 40px;
   background: var(--grey-light);
 }
 .modal-booking > h3,
@@ -39,10 +39,10 @@
   z-index: 1;
 }
 .modal-booking h3 {
-  font-size: 25px;
+  font-size: 34px;
   font-weight: 500;
   color: var(--onsurface);
-  margin: 0 0 20px;
+  margin: 0 0 36px;
   padding-right: 32px;
 }
 
@@ -76,7 +76,7 @@
 .booking-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 30px;
 }
 
 .booking-field label {
@@ -176,8 +176,11 @@
 
 .booking-submit {
   width: 100%;
-  height: 47px;
-  font-size: 20px;
+  height: 59px;
+  border-radius: 18px;
+  background: var(--main);
+  color: var(--white);
+  font-size: 28px;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -187,7 +190,7 @@
   }
 
   .modal-booking {
-    padding: 56px;
+    padding: 56px 28px 32px;
     border-radius: 40px;
   }
   .booking-row {
@@ -199,7 +202,16 @@
     margin-bottom: 16px;
   }
   .modal-close {
-    top: 48px;
-    right: 48px;
+    top: 18px;
+    right: 18px;
+  }
+  .booking-field label {
+    font-size: 16px;
+  }
+  .booking-agreement {
+    font-size: 14px;
+  }
+  .booking-submit {
+    font-size: 20px;
   }
 }

@@ -227,7 +227,7 @@ function scheduleRenderGroupCards() {
             <span class="status-pill ${badgeClass}">${badgeLabel}</span>
           </div>
           <ul class="group-rows">
-            <li>${CARD_BULLET_ICON}Розклад: &nbsp;&nbsp;<b>${scheduleTranslateDays(row.schedule)}</b></li>
+            <li>${CARD_BULLET_ICON}Розклад: &nbsp;<b class="group-schedule-value">${scheduleTranslateDays(row.schedule)}</b></li>
             <li>${CARD_BULLET_ICON}Викладач: <b>${row.teacher}</b> ${teacherVideoIcon}</li>
             <li>${CARD_BULLET_ICON}Вартість: &nbsp;<b>${priceLine}</b></li>
           </ul>
